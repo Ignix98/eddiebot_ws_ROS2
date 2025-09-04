@@ -1,0 +1,27 @@
+# ROS 2 build and install files
+/build/
+/install/
+/log/
+
+# Colcon test results
+/test_results/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# CMake build system
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# VSCode settings
+.vscode/
+
+# Other editor/OS files
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
