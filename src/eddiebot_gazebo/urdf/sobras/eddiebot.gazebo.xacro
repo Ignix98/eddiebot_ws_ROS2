@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<robot name="eddiebot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Definición de argumentos -->
+  <xacro:property name="M_PI" value="3.14159265359"/>
+  <xacro:arg name="laser_visual" default="false"/>
+  <xacro:arg name="imu_visual" default="false"/>
+
+  <!-- Solo materiales y propiedades físicas -->
+
+  <gazebo reference="base_link">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="base_top_link">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="kinect_plate_link">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="motor_left_link">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+  <gazebo reference="motor_right_link">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+  <gazebo reference="battery_left_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="battery_right_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="screen_case_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="screen_link">
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+
+  <gazebo reference="wheel_left_link">
+    <mu1>0.9</mu1>
+    <mu2>0.9</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <fdir value="1 0 0"/>
+    <minDepth>0.001</minDepth>
+    <maxVel>1.0</maxVel>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+
+  <gazebo reference="wheel_right_link">
+    <mu1>0.9</mu1>
+    <mu2>0.9</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <fdir value="1 0 0"/>
+    <minDepth>0.001</minDepth>
+    <maxVel>1.0</maxVel>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+
+  <gazebo reference="base_front_caster_link">
+    <mu1 value="0.1"/>
+    <mu2 value="0.1"/>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+    <minDepth>0.001</minDepth>
+    <maxVel>1.0</maxVel>
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+  <gazebo reference="base_rear_caster_link">
+    <mu1 value="0.1"/>
+    <mu2 value="0.1"/>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+    <minDepth>0.001</minDepth>
+    <maxVel>1.0</maxVel>
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+  <gazebo reference="wheels_front_caster_link">
+    <mu1 value="0.1"/>
+    <mu2 value="0.1"/>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+    <minDepth>0.001</minDepth>
+    <maxVel>1.0</maxVel>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+
+  <gazebo reference="wheels_rear_caster_link">
+    <mu1 value="0.1"/>
+    <mu2 value="0.1"/>
+    <kp value="1000000.0"/>
+    <kd value="100.0"/>
+    <minDepth>0.001</minDepth>
+    <maxVel>1.0</maxVel>
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+
+  <!-- LIDAR: solo visualización -->
+  <gazebo reference="laser_frame">
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+
+  <!-- Kinect: solo visualización -->
+  <gazebo reference="pos_kinect_Link">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <!-- 
+  <gazebo reference="camera_link">
+      <sensor type="camera" name="Botcamera">
+        <update_rate>30.0</update_rate>
+        <camera name="head">
+          <horizontal_fov>1.3962634</horizontal_fov>
+          <image>
+            <width>800</width>
+            <height>800</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.02</near>
+            <far>300</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+        <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+          <alwaysOn>true</alwaysOn>
+          <updateRate>0.0</updateRate>
+          <cameraName>/Botcamera</cameraName>
+          <imageTopicName>image_raw</imageTopicName>
+          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+          <frameName>camera_link</frameName>
+          <hackBaseline>0.07</hackBaseline>
+        </plugin>
+      </sensor>
+      <material>Gazebo/Blue</material>
+    </gazebo>
+    -->
+    <gazebo>
+      <plugin filename="libgazebo_ros_diff_drive.so" name="gazebo_base_controller">
+        <odometry_frame>odom</odometry_frame>
+        <commandTopic>cmd_vel</commandTopic>
+        <publish_odom>true</publish_odom>
+        <publish_odom_tf>true</publish_odom_tf>
+        <update_rate>15.0</update_rate>
+        <left_joint>wheel_left_joint</left_joint>
+        <right_joint>wheel_right_joint</right_joint>
+        <wheel_separation>0.8</wheel_separation>
+        <wheel_diameter>0.3</wheel_diameter>
+        <max_wheel_acceleration>0.7</max_wheel_acceleration>
+        <robotBaseFrame>base</robotBaseFrame>
+  
+      </plugin>
+    </gazebo> 
+</robot>

@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<robot name="eddiebot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Solo materiales y propiedades físicas -->
+  <!--
+  <gazebo reference="base_link">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="base_top_link">
+    <material>Gazebo/DarkGrey</material>
+  </gazebo>
+
+  <gazebo reference="kinect_plate_link">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <gazebo reference="motor_left_link">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+  <gazebo reference="motor_right_link">
+    <material>Gazebo/Orange</material>
+  </gazebo>
+
+  <gazebo reference="battery_left_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="battery_right_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+  <gazebo reference="screen_case_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <gazebo reference="screen_link">
+    <material>Gazebo/FlatBlack</material>
+  </gazebo>
+  -->
+
+  <gazebo reference="wheel_left_link">
+    <mu1>0.9</mu1>
+    <mu2>0.9</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <fdir value="1 0 0"/>
+    <minDepth>0.001</minDepth>
+    <maxVel>1.0</maxVel>
+    <!--<material>Gazebo/FlatBlack</material>-->
+  </gazebo>
+
+  <gazebo reference="wheel_right_link">
+    <mu1>0.9</mu1>
+    <mu2>0.9</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <fdir value="1 0 0"/>
+    <minDepth>0.001</minDepth>
+    <maxVel>1.0</maxVel>
+    <!--<material>Gazebo/FlatBlack</material>-->
+  </gazebo>
+
+  <gazebo reference="base_front_caster_link">
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1.0</maxVel>
+    <!--<material>Gazebo/Orange</material>-->
+  </gazebo>
+
+  <gazebo reference="base_rear_caster_link">
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1.0</maxVel>
+    <!--<material>Gazebo/Orange</material>-->
+  </gazebo>
+
+  <gazebo reference="wheels_front_caster_link">
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1.0</maxVel>
+    <!--<material>Gazebo/FlatBlack</material>-->
+  </gazebo>
+
+  <gazebo reference="wheels_rear_caster_link">
+    <mu1>0.1</mu1>
+    <mu2>0.1</mu2>
+    <kp>1000000.0</kp>
+    <kd>100.0</kd>
+    <minDepth>0.001</minDepth>
+    <maxVel>1.0</maxVel>
+    <!--<material>Gazebo/FlatBlack</material>-->
+  </gazebo>
+</robot>
